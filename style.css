@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+
+}
+#labirinto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.cel {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+}
+.linha {
+    display: flex;
+    flex-direction: row;
+}
