@@ -38,9 +38,6 @@ const posicoesPermitidas = [[-135, -210], [-120, -210], [-105, -210], [-75, -210
 [-135, -30], [-120, -30], [-105, -30], [-90, -30], [-75, -30], [-60, -30], [-45, -30], [-15, -30], [0, -30], [15, -30],
 [30, -30], [45, -30], [60, -30], [75, -30], [105, -30], [120, -30], [135, -30]];
 
-function movimenta () {
-
-}
 
 let posicaoJogadorLeft = -165;
 let posicaoJogadorTop = -90;
@@ -55,6 +52,20 @@ document.addEventListener('keydown', (event) => {
     //
     if(ehPosicaoPermitida(posicaoPretendida)) {      
       posicaoJogadorTop -= 15;
+      if ((posicaoJogadorLeft === -150) && (posicaoJogadorTop === -90)) {
+        document.getElementById("start").innerText = " ";        
+      } else {
+        document.getElementById("start").innerText = "S";
+      }
+
+      if ((posicaoJogadorLeft === 150) && (posicaoJogadorTop === -105)) {
+        document.getElementById("finish").innerText = " ";
+        document.getElementById("mensagemVitoria").innerText = "Você chegou à saída do labirinto. Parabéns!";
+      } else {
+        document.getElementById("finish").innerText = "F";
+        document.getElementById("mensagemVitoria").innerText = "";
+      }
+
     } 
     //
   } else if (keyName === 'ArrowDown') {    
@@ -63,6 +74,20 @@ document.addEventListener('keydown', (event) => {
         //
         if(ehPosicaoPermitida(posicaoPretendida)) {
           posicaoJogadorTop += 15;
+          if ((posicaoJogadorLeft === -150) && (posicaoJogadorTop === -90)) {
+            document.getElementById("start").innerText = " ";
+          } else {
+            document.getElementById("start").innerText = "S";
+          }
+
+        if ((posicaoJogadorLeft === 150) && (posicaoJogadorTop === -105)) {
+          document.getElementById("finish").innerText = " ";
+          document.getElementById("mensagemVitoria").innerText = "Você chegou à saída do labirinto. Parabéns!";
+        } else {
+          document.getElementById("finish").innerText = "F";
+          document.getElementById("mensagemVitoria").innerText = "";
+        }
+
         }
         //
   } else if (keyName === 'ArrowLeft') {
@@ -72,7 +97,22 @@ document.addEventListener('keydown', (event) => {
         //
         if(ehPosicaoPermitida(posicaoPretendida)) {
           posicaoJogadorLeft -= 15;  
+          if ((posicaoJogadorLeft === -150) && (posicaoJogadorTop === -90)) {
+            document.getElementById("start").innerText = " ";
+          } else {
+            document.getElementById("start").innerText = "S";
+          }
         }
+
+
+        if ((posicaoJogadorLeft === 150) && (posicaoJogadorTop === -105)) {
+          document.getElementById("finish").innerText = " ";
+          document.getElementById("mensagemVitoria").innerText = "Você chegou à saída do labirinto. Parabéns!";
+        } else {
+          document.getElementById("finish").innerText = "F";
+          document.getElementById("mensagemVitoria").innerText = "";
+        }
+
         //
   } else if (keyName === 'ArrowRight') {    
     posicaoPretendida =  [posicaoJogadorLeft + 15, posicaoJogadorTop];
@@ -81,6 +121,21 @@ document.addEventListener('keydown', (event) => {
         //
         if(ehPosicaoPermitida(posicaoPretendida)) {
           posicaoJogadorLeft += 15;  
+          if ((posicaoJogadorLeft === -150) && (posicaoJogadorTop === -90)) {
+            document.getElementById("start").innerText = " ";
+          } else {
+            document.getElementById("start").innerText = "S";
+          }
+
+
+        if ((posicaoJogadorLeft === 150) && (posicaoJogadorTop === -105)) {
+          document.getElementById("finish").innerText = " ";
+          document.getElementById("mensagemVitoria").innerText = "Você chegou à saída do labirinto. Parabéns!";
+        } else {
+          document.getElementById("finish").innerText = "F";
+          document.getElementById("mensagemVitoria").innerText = "";
+        }
+
         }
         //
   }
@@ -88,27 +143,24 @@ document.addEventListener('keydown', (event) => {
     document.getElementById("jogador").style.left = posicaoJogadorLeft + 'px';
 
   // para testes de posição
-  document.getElementById("paragrafoPosicaoLeft").innerText = "Posição Left do jogador: " + posicaoJogadorLeft;
-  document.getElementById("paragrafoPosicaoTop").innerText = "Posição Top do jogador: " + posicaoJogadorTop;
-  document.getElementById("testePosicaoPermitida").innerText = "Posição do Jogador: " + posicaoJogador;
+  // document.getElementById("paragrafoPosicaoLeft").innerText = "Posição Left do jogador: " + posicaoJogadorLeft;
+  // document.getElementById("paragrafoPosicaoTop").innerText = "Posição Top do jogador: " + posicaoJogadorTop;
+  // document.getElementById("testePosicaoPermitida").innerText = "Posição do Jogador: " + posicaoJogador;
 // fim teste de posição
 
 });
 
-// teste
-// console.log(posicoesPermitidas); 
-// teste
 
 function ehPosicaoPermitida (posicaoEntrada) {
   let ehPermitida = false;
-  console.log("posição de entrada: " + posicaoEntrada);
+  
   for (let indice = 0; indice<posicoesPermitidas.length; indice++){
-    console.log("posições permitidas: " + posicoesPermitidas[indice]);
+    
     if ((posicoesPermitidas[indice][0] === posicaoEntrada[0]) && (posicoesPermitidas[indice][1] === posicaoEntrada[1])){
-      console.log("POSIÇÃO PERMITIDA ENCONTRADA");
+      
       ehPermitida = true;
       return ehPermitida;
-      // console.log("É uma posição permitida");
+      
     }
   }  
 }

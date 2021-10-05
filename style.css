@@ -14,14 +14,26 @@ h1 {
     height: 15px;
     text-align: center;
 }
+#start {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+}
+#finish {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+}
 .linha {
     display: flex;
     flex-direction: row;
 }
 #jogador {
     position: relative;
-/* justify-content: left; */
     right: 100px;
     left: -165px;
     top: -90px;
+}
+h2 {
+    text-align: center;
 }
