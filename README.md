@@ -1,5 +1,7 @@
 # Entrega: Labirinto
 
+Deploy: https://junior-a-silva.github.io/entrega-labirinto-sprint-5-Junior-A-Silva/
+
 Hoje você criará um jogo em JavaScript que exibe um labirinto e permite que o jogador use as teclas de cursor para se mover por ele um passo de cada vez. O labirinto é um array 2D de células que representam o chão (transponíveis) ou paredes (intransponíveis).
 
 ![maze.gif](https://files-kenzie-academy-brasil.s3.amazonaws.com/maze.gif)
